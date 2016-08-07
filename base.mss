@@ -130,7 +130,7 @@ Map {
 /* ************************* */
 #boundary[admin_level=4],
 #boundary[admin_level=6],
-#boundary[admin_level=8][zoom>=11],
+#boundary[admin_level=8][zoom>=12],
 #boundary[admin_level=9][zoom>=12] {
   eraser/line-color: white;
   eraser/line-width: 0.5;
@@ -146,17 +146,11 @@ Map {
       line-cap: butt;
       line-width: 1.5;
       line-dasharray: 10,4,2,4;
-      [zoom>=12] {
-          line-width: 2;
-      }
   }
   [admin_level=6] {
       line-cap: butt;
       line-width: 1;
       line-dasharray: 8,4;
-      [zoom>=12] {
-          line-width: 2;
-      }
   }
   [admin_level=8],
   [admin_level=9] {
