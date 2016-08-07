@@ -47,6 +47,7 @@ Map {
   polygon-fill: @land;
 }
 #landuse_gen[zoom<14],
+#landuse[type="residential"][zoom>=13],
 #landuse[zoom>=14] {
   #landuse_gen {
       polygon-opacity: 0.8;
@@ -75,6 +76,9 @@ Map {
   [type='retail'],
   [type='pedestrian'] {
       polygon-fill: @residential;
+      [type='residential'][zoom>=14] {
+          polygon-fill: @land;
+      }
   }
   [type='golf_course'],
   [type='pitch'],
