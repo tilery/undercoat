@@ -1,9 +1,9 @@
 /* ************************* */
 /*          PLACE            */
 /* ************************* */
-#place[type='city'],
-#place[type='town'],
-#place[type='village'][zoom>=9] {
+#places[type='city'],
+#places[type='town'],
+#places[type='village'][zoom>=9] {
   text-name:'[name].replace("Saint-", "St-").replace("Sainte-", "Ste-")';
   text-face-name: @xlight;
   text-placement:point;
@@ -48,7 +48,7 @@
 /* ************************* */
 /*          ROADS            */
 /* ************************* */
-#road_label[zoom>14] {
+#roads.label::label[zoom>14] {
   text-name: '[name].replace("^Chemin", "Ch.").replace("^Avenue", "Av.").replace("^Rue", "R.").replace("^Route", "Rte").replace("^Boulevard", "Bd")';
   text-face-name: @xlight;
   text-placement: line;

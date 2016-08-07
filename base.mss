@@ -40,18 +40,17 @@
 /* *********** */
 
 Map {
-  background-color: @water;
+  background-color: @land;
   buffer-size: @buffer;
 }
 #land {
   polygon-fill: @land;
 }
-#landuse_gen[zoom<14],
-#landuse[zoom>=14] {
-  #landuse_gen {
+#landuse[zoom>=9] {
+  [zoom<12] {
       polygon-opacity: 0.8;
   }
-  #landuse_gen[zoom>=12] {
+  [zoom>=12][zoom<14] {
       polygon-opacity: 0.9;
   }
   [type='grave_yard'],
@@ -117,17 +116,17 @@ Map {
   }
 }
 
-#waterway {
+#waterarea {
   polygon-fill: @water;
 }
 
 /* ************************* */
 /* ADMINISTRATIVE BOUNDARIES */
 /* ************************* */
-#boundary[admin_level=4],
-#boundary[admin_level=6],
-#boundary[admin_level=8][zoom>=11],
-#boundary[admin_level=9][zoom>=12] {
+#boundaries[admin_level=4],
+#boundaries[admin_level=6],
+#boundaries[admin_level=8][zoom>=11],
+#boundaries[admin_level=9][zoom>=12] {
   eraser/line-color: white;
   eraser/line-width: 0.5;
   eraser/comp-op: darken;
@@ -166,7 +165,7 @@ Map {
 /* ******** */
 /* RAILWAYS */
 /* ******** */
-#railway[zoom>=14] {
+#railways[zoom>=14] {
   outline/line-width: 1;
   outline/line-color: @rail_case;
   outline/line-cap: round;
@@ -185,14 +184,11 @@ Map {
 /* ******** */
 /*  ROADS   */
 /* ******** */
-#roads_gen[type='primary'][ref!=""][zoom>=11][zoom<13],
-#roads_gen[type='trunk'][zoom>=11][zoom<13],
-#roads_gen[type='motorway'][zoom>=11][zoom<13],
-#roads[type='secondary'][zoom>=15],
-#roads[type='primary'][zoom>=13],
-#roads[type='trunk'][zoom>=13],
-#roads[type='motorway_link'][zoom>=13],
-#roads[type='motorway'][zoom>=13] {
+#roads.geo[type='secondary'][zoom>=15],
+#roads.geo[type='primary'][zoom>=11],
+#roads.geo[type='trunk'][zoom>=11],
+#roads.geo[type='motorway_link'][zoom>=13],
+#roads.geo[type='motorway'][zoom>=11] {
   outline/line-color: #aaa;
   outline/line-width: 2;
   outline/line-join: round;
@@ -231,35 +227,12 @@ Map {
     }
   }
 }
-#roads_gen[type='primary'][ref!=""][zoom>=9][zoom<11],
-#roads_gen[type='trunk'][zoom>=9][zoom<11],
-#roads_gen[type='motorway'][zoom>=9][zoom<11],
-#roads[zoom>=15]::watermark,
-#roads[type='tertiary'][zoom>=13],
-#roads[type='secondary'][zoom>=13][zoom<15] {
+#roads.geo[zoom>=15]::watermark,
+#roads.geo[type='tertiary'][zoom>=13],
+#roads.geo[type='secondary'][zoom>=13][zoom<15] {
   line-color: darken(@land, 10);
   line-width: 1;
   [zoom>=16] {line-width: 2;}
-}
-#footways[zoom>=16] {
-  outline/line-color: darken(@land, 2);
-  outline/line-width: 2;
-  [zoom>=18] {
-    outline/line-width: 3;
-  }
-  line-dasharray: 1,2;
-  line-cap: round;
-  line-width: 1;
-  line-color: #aaa;
-  [zoom>=18] {
-    line-dasharray: 1,4;
-    [type='steps'] {
-      outline/line-width: 6;
-      line-width: 5;
-      line-cap: butt;
-      line-dasharray: 2,2;
-    }
-  }
 }
 
 /* ****** */
