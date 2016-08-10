@@ -47,6 +47,25 @@
 /* ************************* */
 /*          ROADS            */
 /* ************************* */
+#road_label::shield[type='secondary'][zoom>=12][reflen<=6],
+#road_label::shield[type='primary'][zoom>=11][reflen<=6],
+#road_label::shield[type='trunk'][zoom>=9][reflen<=6],
+#road_label::shield[type='motorway'][zoom>=9][reflen<=6] {
+  shield-name: "[ref].replace('·', '\n')";
+  shield-size: 9;
+  shield-line-spacing: -4;
+  shield-file: url('shield/road-[reflen].svg');
+  shield-face-name: @xlight;
+  shield-fill: #333;
+  shield-spacing: 400;
+  shield-min-distance: 100;
+  shield-min-padding: 1;
+  [zoom>=14] {
+    shield-transform: scale(1.25,1.25);
+    shield-size: 11;
+  }
+}
+
 #road_label[zoom>14] {
   text-name: '[name].replace("^Chemin", "Ch.").replace("^Avenue", "Av.").replace("^Rue", "R.").replace("^Route", "Rte").replace("^Boulevard", "Bd")';
   text-face-name: @xlight;
