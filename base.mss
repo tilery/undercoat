@@ -5,7 +5,7 @@
 @land:              #fff;
 @residential:       #f8f8f8;
 @water:             #b5c1d4;
-@admin:             #6f6060;
+@admin:             #a09191;
 @industrial:        #ece6e8;
 @neutral:           #e2e2e6;
 @wetland:           #e3e9e2;
@@ -127,7 +127,7 @@ Map {
   [admin_level=6] {
       line-cap: butt;
       line-width: 1;
-      line-color: lighten(@admin, 30%);
+      line-color: lighten(@admin, 20%);
   }
 }
 /* ******** */
