@@ -215,10 +215,18 @@ Map {
 #roads_gen[type='trunk'][zoom>=9][zoom<11],
 #roads_gen[type='motorway'][zoom>=7][zoom<11],
 #roads_gen[type='secondary'][zoom=11],
+#roads[type='residential'][zoom=14],
+#roads[type='unclassified'][zoom=14],
+#roads[type='service'][zoom=14],
 #roads[type='tertiary'][zoom>=12],
 #roads[type='secondary'][zoom>=12][zoom<15] {
   line-color: @road_case;
   line-width: 1;
+  [type='service'],
+  [type='residential'],
+  [type='unclassified'] {
+    line-width: 0.5;
+  }
   [type='motorway'][zoom>=10],
   [type='trunk'][zoom>=10] {
       line-width: 2;
