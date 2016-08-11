@@ -302,7 +302,7 @@ Layer:
           FROM
             osm_roads
           WHERE
-            type IS NOT NULL AND name IS NOT NULL
+            type IS NOT NULL AND name IS NOT NULL AND geometry && !bbox!
           ORDER BY
             z_order
         ) AS data
