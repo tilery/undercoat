@@ -2,9 +2,9 @@
 /* Palette */
 /* ******* */
 @water:             #bed9e0;
-@land:              #f2f0f0;
-@residential:       #e6e2e2;
-@water:             #A5B4CB;
+@land:              #fff;
+@residential:       #f8f8f8;
+@water:             #b5c1d4;
 @admin:             #6f6060;
 @industrial:        #ece6e8;
 @neutral:           #e2e2e6;
@@ -49,35 +49,85 @@ Map {
 #land {
   polygon-fill: @land;
 }
-
-#waterway {
+#landuse_gen[zoom<14],
+#landuse[type="residential"][zoom>=12],
+#landuse[zoom>=14] {
+  polygon-fill: @neutral;
+  #landuse_gen {
+      polygon-opacity: 0.8;
+  }
+  #landuse_gen[zoom>=12] {
+      polygon-opacity: 0.9;
+  }
+  [type='residential'],
+  [type='retail'],
+  [type='pedestrian'] {
+      polygon-fill: @residential;
+      [type='residential'][zoom>=14] {
+          polygon-fill: @land;
+      }
+  }
+  [type='golf_course'],
+  [type='pitch'],
+  [type='grass'],
+  [type='grassland'],
+  [type='park'],
+  [type='garden'],
+  [type='village_green'],
+  [type='recreation_ground'],
+  [type='picnic_site'],
+  [type='camp_site'],
+  [type='playground'],
+  [type='common'],
+  [type='scrub'],
+  [type='meadow'],
+  [type='heath'] {
+      polygon-fill: @grass;
+  }
+  [type='forest'],
+  [type='wood'] {
+      polygon-fill: @land;
+  }
+  [type='farmland'],
+  [type='farm'],
+  [type='orchard'],
+  [type='allotments'] {
+      polygon-fill: @land;
+  }
+  [type='beach'],
+  [type='desert'] {
+      polygon-fill: @beach;
+  }
+  [type='basin'] {
+      polygon-fill: @water;
+  }
+  [type='wetland'] {
+      polygon-fill: @wetland;
+  }
+}
+#waterareas_gen[zoom<13],
+#waterareas[zoom>=13] {
   polygon-fill: @water;
 }
 
 /* ************************* */
 /* ADMINISTRATIVE BOUNDARIES */
 /* ************************* */
-#boundary[admin_level=4],
-#boundary[admin_level=6] {
+#boundary[admin_level=4][zoom<=12],
+#boundary[admin_level=6][zoom<=12] {
   eraser/line-color: white;
-  eraser/line-width: 0.5;
+  eraser/line-width: 1;
   eraser/comp-op: darken;
   line-color: @admin;
-  line-width: 0.8;
-  [zoom<12] {
-    line-smooth: 0.2;
-    line-simplify: 10;
-    line-color: lighten(@admin, 15%);
-  }
-  [admin_level=4] {
-      line-cap: butt;
-      line-width: 1.5;
-      line-dasharray: 10,4,2,4;
-  }
+  line-cap: butt;
+  line-width: 1.5;
+  line-dasharray: 8,4;
+  line-smooth: 0.2;
+  line-simplify: 10;
   [admin_level=6] {
       line-cap: butt;
       line-width: 1;
-      line-dasharray: 8,4;
+      line-color: lighten(@admin, 30%);
   }
 }
 /* ******** */
@@ -105,6 +155,9 @@ Map {
 #roads_gen[type='primary'][zoom>=11][zoom<13],
 #roads_gen[type='trunk'][zoom>=11][zoom<13],
 #roads_gen[type='motorway'][zoom>=11][zoom<13],
+#roads[type='residential'][zoom>=15],
+#roads[type='unclassified'][zoom>=15],
+#roads[type='service'][zoom>=15],
 #roads[type='secondary'][zoom>=15],
 #roads[type='primary'][zoom>=13],
 #roads[type='trunk'][zoom>=13],
@@ -121,8 +174,13 @@ Map {
   }
   [zoom>=15] {
     outline/line-width: 5;
+    [type='service'],
+    [type='residential'],
+    [type='unclassified'] {
+        outline/line-width: 3;
+    }
     [type='motorway'] {
-        outline/line-width: 7;
+        outline/line-width: 8;
     }
   }
   [zoom<=10] {
@@ -143,20 +201,36 @@ Map {
   }
   [zoom>=15] {
     line-width: 4;
+    [type='service'],
+    [type='residential'],
+    [type='unclassified'] {
+        line-width: 2;
+    }
     [type='motorway'] {
-      line-width: 6;
+      line-width: 7;
     }
   }
 }
-#roads_gen[type='primary'][zoom>=9][zoom<11],
+#roads_gen[type='primary'][zoom>=10][zoom<11],
 #roads_gen[type='trunk'][zoom>=9][zoom<11],
-#roads_gen[type='motorway'][zoom>=9][zoom<11],
-#roads_gen[type='secondary'][zoom=12],
-#roads[zoom>=15]::watermark,
-#roads[type='tertiary'][zoom>=13],
-#roads[type='secondary'][zoom>=13][zoom<15] {
+#roads_gen[type='motorway'][zoom>=7][zoom<11],
+#roads_gen[type='secondary'][zoom=11],
+#roads[type='tertiary'][zoom>=12],
+#roads[type='secondary'][zoom>=12][zoom<15] {
   line-color: @road_case;
   line-width: 1;
+  [type='motorway'][zoom>=10],
+  [type='trunk'][zoom>=10] {
+      line-width: 2;
+  }
+  [type='tertiary'][zoom<=12],
+  [type='secondary'][zoom<=12],
+  [zoom<=10] {
+      line-color: lighten(@road_case, 20%);
+  }
+  [zoom<=8] {
+      line-color: lighten(@road_case, 30%);
+  }
   [zoom>=16] {line-width: 2;}
 }
 
@@ -164,6 +238,6 @@ Map {
 /* ****** */
 /* BUILDINGS */
 /* ****** */
-#buildings[zoom>=17] {
-  polygon-fill: #ccc;
+#buildings[zoom>=16] {
+  polygon-fill: darken(@residential, 5%);
 }
