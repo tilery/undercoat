@@ -71,9 +71,15 @@
   }
 }
 
-#road_label[type='highway'][zoom>13],
-#road_label[type='trunk'][zoom>13],
-#road_label[zoom>14] {
+
+#road_label[type='residential'][zoom>=14],
+#road_label[type='unclassified'][zoom>=14],
+#road_label[type='service'][zoom>=14],
+#road_label[type='secondary'][zoom>=14],
+#road_label[type='tertiary'][zoom>=14],
+#road_label[type='primary'][zoom>=14],
+#road_label[type='trunk'][zoom>=14],
+#road_label[type='motorway'][zoom>=13] {
   text-name: '[name].replace("^Chemin", "Ch.").replace("^Avenue", "Av.").replace("^Rue", "R.").replace("^Route", "Rte").replace("^Boulevard", "Bd")';
   text-face-name: @xlight;
   text-placement: line;
