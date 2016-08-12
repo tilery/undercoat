@@ -159,6 +159,7 @@ Map {
 #roads[type='unclassified'][zoom>=15],
 #roads[type='service'][zoom>=15],
 #roads[type='secondary'][zoom>=15],
+#roads[type='tertiary'][zoom>=15],
 #roads[type='primary'][zoom>=13],
 #roads[type='trunk'][zoom>=13],
 #roads[type='motorway_link'][zoom>=13],
