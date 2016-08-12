@@ -77,13 +77,13 @@ Map {
   [type='recreation_ground'],
   [type='picnic_site'],
   [type='camp_site'],
-  [type='playground'],
+  [type='playground'] {
+      polygon-fill: @grass;
+  }
   [type='common'],
   [type='scrub'],
   [type='meadow'],
-  [type='heath'] {
-      polygon-fill: @grass;
-  }
+  [type='heath'],
   [type='forest'],
   [type='wood'] {
       polygon-fill: @land;
