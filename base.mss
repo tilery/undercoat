@@ -49,61 +49,6 @@ Map {
 #land {
   polygon-fill: @land;
 }
-#landuse_gen[zoom<14],
-#landuse[type="residential"][zoom>=12],
-#landuse[zoom>=14] {
-  polygon-fill: @neutral;
-  #landuse_gen {
-      polygon-opacity: 0.8;
-  }
-  #landuse_gen[zoom>=12] {
-      polygon-opacity: 0.9;
-  }
-  [type='residential'],
-  [type='retail'],
-  [type='pedestrian'] {
-      polygon-fill: @residential;
-      [type='residential'][zoom>=14] {
-          polygon-fill: @land;
-      }
-  }
-  [type='golf_course'],
-  [type='pitch'],
-  [type='grass'],
-  [type='grassland'],
-  [type='park'],
-  [type='garden'],
-  [type='village_green'],
-  [type='recreation_ground'],
-  [type='picnic_site'],
-  [type='camp_site'],
-  [type='playground'] {
-      polygon-fill: @grass;
-  }
-  [type='common'],
-  [type='scrub'],
-  [type='meadow'],
-  [type='heath'],
-  [type='forest'],
-  [type='vineyard'],
-  [type='wood'],
-  [type='farmland'],
-  [type='farm'],
-  [type='orchard'],
-  [type='allotments'] {
-      polygon-fill: @land;
-  }
-  [type='beach'],
-  [type='desert'] {
-      polygon-fill: @beach;
-  }
-  [type='basin'] {
-      polygon-fill: @water;
-  }
-  [type='wetland'] {
-      polygon-fill: @wetland;
-  }
-}
 #waterareas_gen[zoom<13],
 #waterareas[zoom>=13] {
   polygon-fill: @water;

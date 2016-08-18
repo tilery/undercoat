@@ -34,56 +34,6 @@ Layer:
     file: "http://data.openstreetmapdata.com/simplified-land-polygons-complete-3857.zip"
     type: "shape"
   advanced: {}
-- id: "landuse"
-  name: "landuse"
-  class: ""
-  geometry: "polygon"
-  extent:
-    - -180
-    - -85.05112877980659
-    - 180
-    - 85.05112877980659
-  srs-name: "900913"
-  srs: "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
-  Datasource:
-    dbname: idf
-    geometry_field: geometry
-    type: postgis
-    extent: -20037508,-19929239,20037508,19929239
-    table: |-
-      ( SELECT
-          geometry, type
-        FROM
-          osm_landusages
-        WHERE
-          type IS NOT NULL
-        ORDER BY
-          area DESC
-      ) AS data
-- id: landuse_gen
-  name: landuse_gen
-  class: ""
-  geometry: "polygon"
-  extent:
-    - -180
-    - -85.05112877980659
-    - 180
-    - 85.05112877980659
-  srs-name: "900913"
-  srs: "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
-  Datasource:
-    dbname: idf
-    geometry_field: geometry
-    type: postgis
-    extent: -20037508,-19929239,20037508,19929239
-    table: |-
-      ( SELECT
-          geometry, type
-        FROM
-          osm_landusages_gen
-        WHERE
-          type IN ('park', 'garden', 'forest', 'wood', 'cemetery', 'grass')
-      ) AS data
 - id: waterareas_gen
   name: waterareas_gen
   class: ""
