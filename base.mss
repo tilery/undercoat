@@ -219,7 +219,7 @@ Map {
 #roads[type='residential'][zoom=14],
 #roads[type='unclassified'][zoom=14],
 #roads[type='service'][zoom=14],
-#roads[type='tertiary'][zoom>=12],
+#roads[type='tertiary'][zoom>=12][zoom<15],
 #roads[type='secondary'][zoom>=12][zoom<15] {
   line-color: @road_case;
   line-width: 1;
