@@ -157,6 +157,7 @@ Map {
 #roads::casing[type='secondary'][zoom>=15],
 #roads::casing[type='tertiary'][zoom>=15],
 #roads::casing[type='primary'][zoom>=13],
+#roads::casing[type='primary_link'][zoom>=13],
 #roads::casing[type='trunk'][zoom>=13],
 #roads::casing[type='motorway_link'][zoom>=13],
 #roads::casing[type='motorway'][zoom>=13] {
@@ -193,6 +194,7 @@ Map {
 #roads[type='secondary'][zoom>=15],
 #roads[type='tertiary'][zoom>=15],
 #roads[type='primary'][zoom>=13],
+#roads[type='primary_link'][zoom>=13],
 #roads[type='trunk'][zoom>=13],
 #roads[type='motorway_link'][zoom>=13],
 #roads[type='motorway'][zoom>=13] {
@@ -228,6 +230,7 @@ Map {
 #roads[type='residential'][zoom=14],
 #roads[type='unclassified'][zoom=14],
 #roads[type='service'][zoom=14],
+#roads[type='living_street'][zoom=14],
 #roads[type='tertiary'][zoom>=12][zoom<15],
 #roads[type='secondary'][zoom>=12][zoom<15] {
   line-color: @road_case;
