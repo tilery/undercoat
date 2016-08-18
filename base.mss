@@ -85,9 +85,8 @@ Map {
   [type='meadow'],
   [type='heath'],
   [type='forest'],
-  [type='wood'] {
-      polygon-fill: @land;
-  }
+  [type='vineyard'],
+  [type='wood'],
   [type='farmland'],
   [type='farm'],
   [type='orchard'],
