@@ -86,7 +86,7 @@
   text-size: 10;
   text-fill: @road_text;
   text-halo-fill: @road_halo;
-  text-halo-radius: 1;
+  text-halo-radius: 2;
   text-min-distance: 60;
   text-size: 11;
   text-avoid-edges: true;
