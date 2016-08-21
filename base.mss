@@ -96,6 +96,12 @@ Map {
 /* ******** */
 /*  ROADS   */
 /* ******** */
+#roads_gen::casing[type='primary'][zoom>=11][zoom<13],
+#roads_gen::casing[type='trunk'][zoom>=11][zoom<13],
+#roads_gen::casing[type='motorway'][zoom>=11][zoom<13],
+#roads_gen::casing[type='primary_link'][zoom>=12][zoom<13],
+#roads_gen::casing[type='trunk_link'][zoom>=12][zoom<13],
+#roads_gen::casing[type='motorway_link'][zoom>=12][zoom<13],
 #roads::casing[type='residential'][zoom>=15],
 #roads::casing[type='unclassified'][zoom>=15],
 #roads::casing[type='service'][zoom>=15],
@@ -104,6 +110,7 @@ Map {
 #roads::casing[type='primary'][zoom>=13],
 #roads::casing[type='primary_link'][zoom>=13],
 #roads::casing[type='trunk'][zoom>=13],
+#roads::casing[type='trunk_link'][zoom>=13],
 #roads::casing[type='motorway_link'][zoom>=13],
 #roads::casing[type='motorway'][zoom>=13] {
   line-color: @road_case;
@@ -133,6 +140,9 @@ Map {
 #roads_gen[type='primary'][zoom>=11][zoom<13],
 #roads_gen[type='trunk'][zoom>=11][zoom<13],
 #roads_gen[type='motorway'][zoom>=11][zoom<13],
+#roads_gen[type='primary_link'][zoom>=12][zoom<13],
+#roads_gen[type='trunk_link'][zoom>=12][zoom<13],
+#roads_gen[type='motorway_link'][zoom>=12][zoom<13],
 #roads[type='residential'][zoom>=15],
 #roads[type='unclassified'][zoom>=15],
 #roads[type='service'][zoom>=15],
@@ -141,6 +151,7 @@ Map {
 #roads[type='primary'][zoom>=13],
 #roads[type='primary_link'][zoom>=13],
 #roads[type='trunk'][zoom>=13],
+#roads[type='trunk_link'][zoom>=13],
 #roads[type='motorway_link'][zoom>=13],
 #roads[type='motorway'][zoom>=13] {
   line-color: @road_fill;

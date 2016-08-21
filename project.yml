@@ -122,7 +122,7 @@ Layer:
         FROM
           osm_roads_gen
         WHERE
-          type IN ('motorway', 'trunk', 'primary', 'secondary')
+          type IN ('motorway', 'trunk', 'primary', 'secondary', 'primary_link', 'motorway_link', 'trunk_link')
       ) AS data
 - id: boundary
   name: boundary
