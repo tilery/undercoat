@@ -71,6 +71,7 @@
   }
 }
 
+#road_label[type='living_street'][zoom>=14],
 #road_label[type='residential'][zoom>=14],
 #road_label[type='unclassified'][zoom>=14],
 #road_label[type='service'][zoom>=14],
