@@ -3,5 +3,5 @@
 Map rendering dedicated to data vizualisation.
 
 
-![screenshot from 2016-08-07 19-52-55](https://cloud.githubusercontent.com/assets/146023/17464176/9196eef8-5cd8-11e6-9cf2-beff444e8291.png)
-![screenshot from 2016-08-07 19-51-51](https://cloud.githubusercontent.com/assets/146023/17464177/91b6e334-5cd8-11e6-83e8-3acf1d1b8872.png)
+![screenshot from 2016-08-23 08-24-48](https://cloud.githubusercontent.com/assets/146023/17882174/096ea946-690b-11e6-8ef4-5ea5465c8758.png)
+![screenshot from 2016-08-23 08-24-19](https://cloud.githubusercontent.com/assets/146023/17882176/09913c9a-690b-11e6-8b6d-564e17a9daa7.png)

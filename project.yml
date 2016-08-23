@@ -1,5 +1,5 @@
 scale: 1
-metatile: 6
+metatile: 4
 name: "Undercoat"
 bounds:
   - 0.2636
@@ -19,7 +19,7 @@ Stylesheet:
 - base.mss
 - labels.mss
 Layer:
-- id: "land"
+- id: land
   name: "land"
   class: ""
   geometry: "polygon"
@@ -34,7 +34,7 @@ Layer:
     file: "http://data.openstreetmapdata.com/simplified-land-polygons-complete-3857.zip"
     type: "shape"
   advanced: {}
-- id: "landuse"
+- id: landuse
   name: "landuse"
   class: ""
   geometry: "polygon"
@@ -150,7 +150,7 @@ Layer:
         FROM
           osm_roads_gen
         WHERE
-          type IN ('motorway', 'trunk', 'primary', 'secondary')
+          type IN ('motorway', 'trunk', 'primary', 'secondary', 'primary_link', 'motorway_link', 'trunk_link')
       ) AS data
 - id: boundary
   name: boundary
@@ -230,56 +230,6 @@ Layer:
         WHERE
           type NOT IN ('path', 'footway', 'stairs')
       ) AS data
-- id: footways
-  name: footways
-  class: ""
-  geometry: linestring
-  extent:
-    - -180
-    - -85.05112877980659
-    - 180
-    - 85.05112877980659
-  srs-name: "900913"
-  srs: "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
-  Datasource:
-    dbname: idf
-    geometry_field: geometry
-    type: postgis
-    extent: -20037508,-19929239,20037508,19929239
-    table: |-
-      ( SELECT
-          geometry, type
-        FROM
-          osm_roads
-        WHERE
-          type IN ('footway', 'path', 'steps')
-      ) AS data
-- id: road_label
-  name: road_label
-  class: ""
-  geometry: point
-  extent:
-  - -180
-  - -85.05112877980659
-  - 180
-  - 85.05112877980659
-  srs-name: "900913"
-  srs: "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
-  Datasource:
-    dbname: idf
-    geometry_field: geometry
-    type: postgis
-    extent: -20037508,-19929239,20037508,19929239
-    table: |-
-        ( SELECT
-            geometry, type, name
-          FROM
-            osm_roads
-          WHERE
-            type IS NOT NULL AND name IS NOT NULL
-          ORDER BY
-            z_order
-        ) AS data
 - id: place
   name: place
   class: ""
@@ -307,4 +257,30 @@ Layer:
             type IN ('city', 'town', 'village')
             AND type IS NOT NULL
           ORDER BY prio, population DESC NULLS LAST
+        ) AS data
+- id: road_label
+  name: road_label
+  class: ""
+  geometry: point
+  extent:
+  - -180
+  - -85.05112877980659
+  - 180
+  - 85.05112877980659
+  srs-name: "900913"
+  srs: "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+  Datasource:
+    dbname: idf
+    geometry_field: geometry
+    type: postgis
+    extent: -20037508,-19929239,20037508,19929239
+    table: |-
+        ( SELECT
+            geometry, type, name, ref, CHAR_LENGTH(ref) AS reflen
+          FROM
+            osm_roads
+          WHERE
+            type IS NOT NULL AND name IS NOT NULL AND geometry && !bbox!
+          ORDER BY
+            z_order
         ) AS data
