@@ -221,6 +221,17 @@ Map {
         line-width: 8;
     }
   }
+  [zoom>=17] {
+    line-width: 9;
+    [type='service'],
+    [type='residential'],
+    [type='unclassified'] {
+        line-width: 6;
+    }
+    [type='motorway'] {
+        line-width: 11;
+    }
+  }
   [zoom<=10] {
     line-width: 0.5;
   }
@@ -264,6 +275,17 @@ Map {
     }
     [type='motorway'] {
       line-width: 7;
+    }
+  }
+  [zoom>=17] {
+    line-width: 8;
+    [type='service'],
+    [type='residential'],
+    [type='unclassified'] {
+        line-width: 5;
+    }
+    [type='motorway'] {
+      line-width: 10;
     }
   }
 }

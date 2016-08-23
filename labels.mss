@@ -91,4 +91,10 @@
   text-size: 11;
   text-avoid-edges: true;
   text-character-spacing: 0;
+  [zoom=16] {
+      text-size: 11;
+  }
+  [zoom>=17] {
+      text-size: 12;
+  }
 }
