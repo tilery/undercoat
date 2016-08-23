@@ -1,10 +1,9 @@
 /* ******* */
 /* Palette */
 /* ******* */
-@water:             #bed9e0;
 @land:              #ffffff;
 @residential:       #f8f7f7;
-@water:             #b5c1d4;
+@water:             #c5d2dd;
 @admin:             #bea6a6;
 @industrial:        #f7f4f5;
 @neutral:           #e2e2e6;
